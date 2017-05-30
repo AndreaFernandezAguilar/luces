@@ -1,2 +1,2 @@
 # luces
-Project for medical appointments and sales management
+Medical appointments and sales management system
