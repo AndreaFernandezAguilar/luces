@@ -1,53 +1,32 @@
-
-	<?php 
-		include("../modules/sections/head.php");
-
-				require_once ('../modules/class/connection.class.php');
-				$conect = new Connection();
-				$user_name=$_SESSION['name'];
-					
-				if (!isset($_SESSION['id_role']) || !isset($_SESSION['id_user']))
-				{    
-					   header('Location: ../../index.php?error=true');
-				}
-
-
-				else if ($_SESSION['id_role']!=1)  
-				{        
-				   header('Location: ../../index.php?error=true');
-				}
-
-				
-				else
-				{
-					include("../modules/sections/head.php");
-					require_once('../modules/class/user.class.php');
-					require_once('../modules/class/treatment.class.php');
-					require_once('../modules/class/sale.class.php');
-					require_once('../modules/class/history.class.php');
-					$user = new User();
-					$branches = $user->getBranches();
-					$roles=$user->getRoles();
-					$treat= new Treatment();
-					$treatments=$treat->getTreatmentsList();
-					$sale=new Sale();
-					$sale_details=$sale->getSale($_REQUEST['id_sale']);
-					$paidTreatments=$sale->getPaidTreatments($_REQUEST['id_sale']);
-					$patient= new History();
-					$identityCard=$patient->getIdentityCard($sale_details[4]);
-				}
-	 ?>
+<?php 
+	require_once ('../modules/class/connection.class.php');
+    $conect= new Connection();
+    $conect->validate_session($role=1);
+    require_once('../modules/class/user.class.php');
+	require_once('../modules/class/treatment.class.php');
+	require_once('../modules/class/sale.class.php');
+	require_once('../modules/class/history.class.php');
+	$user = new User();
+	$branches = $user->getBranches();
+	$roles=$user->getRoles();
+	$treat= new Treatment();
+	$treatments=$treat->getTreatmentsList();
+	$sale=new Sale();
+	$sale_details=$sale->getSale($_REQUEST['id_sale']);
+	$paidTreatments=$sale->getPaidTreatments($_REQUEST['id_sale']);
+	$patient= new History();
+	$identityCard=$patient->getIdentityCard($sale_details[4]);
+?>
 <body>
 	<!--Header/Menu-->
 	<?php 
 		include("../modules/sections/header_manager.php");
 	?>
-
 	<!--Main Container-->
 	<div class="container">
 		<div class="row">
-			<div class="page-header"><br><br>
-				<h4>Editar Venta</h4>
+			<div class="page-header">
+				<h4 class="space-top4">Editar Venta</h4>
 			</div>
 		</div>
 
@@ -71,8 +50,6 @@
 										<input type="text" name="receiptNumber" id="receiptNumber" class="form-control" placeholder="Ingrese número de factura" value="<?php echo $sale_details[1]; ?>"readonly>
 									</div>
 								</div>
-								<br>
-
 								<div class="form-group">
 									<label class="control-label col-sm-3 col-sm-offset-2">C.I del Cliente</label>
 									<div class="col-sm-5">
@@ -98,11 +75,7 @@
 				</div>	
 			</div>
 		</div>			    
-		<br>
-		<br>
-		<br>
-
-		<div class="row">			
+		<div class="row space-top4">			
 			<div class="col-md-12">
 				<div class="panel panel-default" style="margin-bottom:70px;">
 					<div class="panel-heading">
@@ -143,46 +116,22 @@
 										<a id="addField" class="btn btn-circle" href="#"><span class="glyphicon glyphicon-plus"></span></a>
 									</div>	
 								</div> 
-
-									<!--	<div class="form-group" style="margin-bottom:50px;">
-											<label></label>
-											<div class="col-sm-6 col-sm-offset-5">
-												<button type="submit" class="medium-btn-purple">
-												   Registrar
-												</button>
-
-												<button type="reset" class="medium-btn-purple">
-												 Borrar
-												</button>
-											</div>
-										</div> -->
-										<br>    
-									
 								</div> <!-- col-panel-->
 							</div> <!--row-panel-->		
 						</div><!--panel-body-->
 				</div><!--panel-default-->
 			</div>
 		</div>
-		
-
-
 		<div class="row">
 			<div class="page-header"><br><br>
 				<h4>Tratamientos Registrados</h4>
 			</div>
 		</div>
-
-
 		<div class="row">
-
 			<div class="text-center">
 				<img src="../img/loading.gif" class="hidden" id="img-loading">
 			</div>
-
-
 			<div class="col-md-8 col-md-offset-2" id="treatments-registered">
-
 			   <table class="table table-bordered formulario table2" id="treatmentsTable" name="treatmentsTable">
 					<tr>
 						<th class="col-md-3">Tratamiento</th>
@@ -194,18 +143,11 @@
 					
 					<tr id="tr_<?php echo $paidTreat[0] ?>">
 						<td class="col-md-3">
-							<!--<select class="SlectBox" name="treatment-select-box" id="treatment-select-box">
-								<option value="" selected>Seleccione...</option>
-								<?php foreach ($treatments as $treatment): ?>
-									<option value="<?php echo $treatment['0'] ?>" <?php if ($treatment[0]==$paidTreat[2]) echo 'selected'; ?>><?php echo $treatment['1'] ?></option>
-								<?php endforeach ?> 
-							</select>-->
-
 							<?php 
-								 foreach ($treatments as $treatment) 
+								foreach ($treatments as $treatment) 
 								{
-									 if ($treatment[0]==$paidTreat[2])
-									 	echo $treatment['1'] ;
+									if ($treatment[0]==$paidTreat[2])
+									echo $treatment['1'] ;
 								}
 							 ?>
 							

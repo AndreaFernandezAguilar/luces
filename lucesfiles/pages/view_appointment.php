@@ -105,10 +105,7 @@
 		</div><!--row-->
 
 		<div class="row" id="rowCalendar">
-			<br>
-			<br>
-			<br>
-			<div id='calendar'></div>
+			<div id='calendar' class="space-top4"></div>
 		</div>
 
 		<div class="row" id="testing">
