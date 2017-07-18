@@ -28,7 +28,8 @@
 					    <th>Apellido</th>
 					    <th>Cédula de Identidad</th>
 					    <th>Usuario</th>
-					    <th>Acción</th>
+					    <th>Editar</th>
+					    <th>Eliminar</th>
 				  	</tr>
 					<?php foreach ($list_users as $user):?>
 					<form class="form-users table2" method="POST" action=""> 
@@ -37,8 +38,12 @@
 							<td><?php echo $user['2'] ?></td>
 							<td><?php echo $user['3'] ?></td>
 							<td><?php echo $user['4'] ?></td>
+							<td>
+								<a class="medium-btn-purple" href="edit_user.php?idUser=<?php echo $user['0'] ?>">Editar</a>
+							</td>
 							<td><button type="button" class="medium-btn-purple delete-user"  id="<?php echo $user['0'] ?>">Eliminar Usuario</button>
 							</td>
+
 						</tr>
 						<input type="hidden" value="<?php echo $user['0'] ?>" id="id" name="id">
 					</form>

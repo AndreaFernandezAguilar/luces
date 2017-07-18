@@ -142,7 +142,30 @@ class  User extends Database
 				}	
 	}
 
+	public function getUser($id_user,$id_branch)
+	{
+		$sql = "SELECT * FROM user where idBranch='$id_branch' and id='$id_user'";
 
+		$result = $this->conn->query($sql);
+
+		if ($result) 
+		{
+			if ($result->num_rows > 0) 
+			{
+				while ($row = mysqli_fetch_assoc($result))
+				{
+				   $user = array($row['id'], $row['name'],$row['lastName'],$row['identityCard'],$row['email'],$row['username'],$row['password'],$row['idBranch'],$row['idRole']);
+				}
+
+				return $user;
+			} 
+
+			else 
+			{
+				return false;
+			} 
+		}
+	}
 
 	public function getUsersList($id_branch)
 	{
@@ -156,7 +179,7 @@ class  User extends Database
 					{
 						while ($row = mysqli_fetch_assoc($result))
 						{
-						   $users[] = array($row['id'], $row['name'],$row['lastName'],$row['identityCard'],$row['username']);
+						   $users[] = array($row['id'], $row['name'],$row['lastName'],$row['identityCard'],$row['username'],$row['idBranch']);
 						}
 
 						return $users;
@@ -205,5 +228,22 @@ class  User extends Database
 				}	
 	}
 
+
+	public function updateUser($id,$email,$username,$new_password,$idBranch,$idRole)
+	{
+		$sql="UPDATE user set email='$email',username='$username',password=MD5('$new_password'),idBranch='$idBranch',idRole='$idRole' where id=$id";
+
+
+			$consulta = $this->conn->query($sql);
+
+				if ($consulta)
+				{
+					return TRUE;
+				} 
+				else 
+				{
+					die(($this->conn->error));
+				}	
+	}
 
 }

@@ -47,7 +47,7 @@
 								<div class="form-group">
 									<label class="control-label col-sm-3 col-sm-offset-2">No. de Factura</label>
 									<div class="col-sm-5">
-										<input type="text" name="receiptNumber" id="receiptNumber" class="form-control" placeholder="Ingrese número de factura" value="<?php echo $sale_details[1]; ?>"readonly>
+										<input type="text" name="receiptNumber" id="receiptNumber" class="form-control" placeholder="Ingrese número de factura" value="<?php echo $sale_details[1]; ?>" readonly>
 									</div>
 								</div>
 								<div class="form-group">
