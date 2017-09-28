@@ -12,13 +12,15 @@ require_once ("../class/appointment.class.php");
 	}
 
 	$appoint= new Appointment();
-	
 	$details=$appoint->getAppointments_Details($idAppointment);
+	$patient=$appoint->getPatientFromAppointment($idAppointment);
 
-	echo "Áreas a tratar: ";
+	echo "Paciente: ".$patient['0']." ".$patient['1'];
+	echo "    ";
+	echo "   Áreas a tratar: ";
 	foreach ($details as $detail) 
 	{
-		 echo $detail['0']." - ";
+		echo $detail['0']." - ";
 		
 	}
 

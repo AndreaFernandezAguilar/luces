@@ -12,7 +12,6 @@
 			<!--<a class="navbar-brand" href="#">Brand</a>-->
 			<a class="navbar-brand" href="#"><img class="logo-menu" src="../img/logo luces reducido.png"/></a>
 		</div>
-
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
@@ -28,9 +27,7 @@
 		      		<li><a href="#">Editar Cita</a></li>
 		      		<li><a href="#">Eliminar Cita</a></li>
 		    	</ul> <!-- dropdown-menu -->
-
-	    	</li> <!-- dropdown -->
-						
+	    	</li> <!-- dropdown -->				
 			<li id="my-dropdown" class="dropdown">
 		    	<a  id="my-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-folder-open"> </span>  Historias <span class="caret"></span> </a>
 		    	
@@ -40,12 +37,8 @@
 		      			<li><a href="edit_medical_history.php">Editar Historia</a></li>
 		      			<!--<li><a href="delete_medical_history.php">Eliminar Historia</a></li>-->
 		    		</ul> <!-- dropdown-menu -->
-
 	    	</li> <!-- dropdown -->
-
-			
-
-		<!--	<li id="my-dropdown"  class="dropdown">
+			<!--<li id="my-dropdown"  class="dropdown">
 	        	<a  id="my-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-duplicate"></span> Reportes<span class="caret"></span></a>
 	        
 	        		<ul id="my-dropdown-menu" class="dropdown-menu">
@@ -53,17 +46,12 @@
 	          			
 	        		</ul> ropdown-menu 
 	    	</li>  -->
-
-	    	
-
  			<li>
  				<a href="../modules/logout.php" id="logout" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-off"> </span> Salir del Sistema</a> 
  			</li>
  		</ul><!-- nav navbar-nav --> 	      
  	</div><!-- /.navbar-collapse -->
-
 </nav>
-
 </div>
       
        

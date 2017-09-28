@@ -250,7 +250,7 @@ tr.idMachine='$idMachine' and tr.id= tr_ba.idTreatment and apo.idTreatment_BodyA
 					{
 						while ($row = mysqli_fetch_assoc($result))
 						{
-						   $appointment[] = array('id'=>$row['id'],'title'=>'Cita', 'start'=>$row['start'],'end'=>$row['end']);
+						    $appointment[] = array('id'=>$row['id'],'title'=>'Cita', 'start'=>$row['start'],'end'=>$row['end']);
 						}
 
 						return $appointment;
@@ -311,8 +311,6 @@ tr.idMachine='$idMachine' and tr.id= tr_ba.idTreatment and apo.idTreatment_BodyA
 				}
 	}
 
-
-
 		public function getAppointments_ByTreatment_Branch($idTreatment,$idBranch)
 	{
 		$sql ="SELECT distinct ap.id,idPatient, ap.`start`,ap.`end`from appointment as ap,appointment_treatment_bodyarea as atb, treatment_bodyarea as tb 
@@ -341,13 +339,10 @@ tr.idMachine='$idMachine' and tr.id= tr_ba.idTreatment and apo.idTreatment_BodyA
 	}
 
 
-
-
-
 		public function getAppointments_Details($idAppointment)
 	{
-		$sql ="SELECT ba.name from bodyarea as ba, treatment_bodyarea as tba, appointment_treatment_bodyarea atb 
-		where atb.idAppointment='$idAppointment' and atb.idTreatment_BodyArea=tba.id and tba.idBodyArea=ba.id";
+		$sql ="SELECT ba.name, patient.name as patientName,patient.lastName from bodyarea as ba, treatment_bodyarea as tba, appointment_treatment_bodyarea as atb, appointment as ap, patient 
+		where atb.idAppointment='$idAppointment' and atb.idTreatment_BodyArea=tba.id and tba.idBodyArea=ba.id and atb.idAppointment=ap.id and ap.idPatient=patient.id";
 		
 		$result = $this->conn->query($sql);
 
@@ -357,7 +352,7 @@ tr.idMachine='$idMachine' and tr.id= tr_ba.idTreatment and apo.idTreatment_BodyA
 					{
 						while ($row = mysqli_fetch_assoc($result))
 						{
-						   $details[] = array($row['name']);
+						   $details[] = array($row['name'],$row['patientName'],$row['lastName']);
 						}
 
 						return $details;
@@ -479,7 +474,30 @@ tr.idMachine='$idMachine' and tr.id= tr_ba.idTreatment and apo.idTreatment_BodyA
 				
 	}
 
+	public function getPatientFromAppointment($idAppointment)
+	{
 
+		$sql="SELECT patient.name,patient.lastName from appointment,patient where appointment.id='$idAppointment' and appointment.idPatient=patient.id";
+		$result = $this->conn->query($sql);
+
+				if ($result) 
+				{
+					if ($result->num_rows > 0) 
+					{
+						while ($row = mysqli_fetch_assoc($result))
+						{
+						   $appointment = array($row['name'],$row['lastName']);
+						}
+
+						return $appointment;
+					} 
+
+					else 
+					{
+						return false;
+					} 
+				}
+	}
 
 }
 

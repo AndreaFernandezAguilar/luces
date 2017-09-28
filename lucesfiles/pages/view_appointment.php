@@ -103,15 +103,10 @@
 	      		</div><!--Panel,default-->
 			</div><!--colmd8-->
 		</div><!--row-->
-
 		<div class="row" id="rowCalendar">
 			<div id='calendar' class="space-top4"></div>
 		</div>
-
-		<div class="row" id="testing">
-		</div>
 	</div> <!--container principal-->
-
 	<?php 
 		/*Modal*/
 		include("../modules/views/modal.html");
@@ -121,6 +116,6 @@
 		include("../modules/sections/footer.php");
 	?>	
 	<!--Scripts-->
-	<script type="text/javascript" src="../js/appointment/view_appointment.js"></script>	
+	<script type="text/javascript" src="../js/appointment/view_appointment.js"></script>
 </body>
 </html>
