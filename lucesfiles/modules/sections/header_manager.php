@@ -20,76 +20,56 @@
 					<li>
 		 				<a href="home_manager.php" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-home"> </span> Inicio </a>
 		 			</li>
-
 		 			<li id="my-dropdown" class="dropdown">
 				    	<a id="my-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-user"></span> Usuarios <span class="caret"></span></a>
 				    
 				    	<ul id="my-dropdown-menu" class="dropdown-menu">
 				      		<li><a href="new_user.php">Crear Usuario</a></li>
-				      		<li><a href="edit_user.php">Editar Usuario</a></li>
-				      		<li><a href="delete_user.php">Eliminar Usuario</a></li>
+				      		<!--<li><a href="edit_user.php">Editar Usuario</a></li>-->
+				      		<li><a href="delete_user.php">Editar/Eliminar Usuario</a></li>
 				    	</ul> <!-- dropdown-menu -->
-
 			    	</li> <!-- dropdown -->
 					<li id="my-dropdown" class="dropdown"  >
 				    	<a  id="my-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-calendar"></span> Citas <span class="caret"></span></a>
-				    
 				    	<ul id="my-dropdown-menu" class="dropdown-menu">
 				      		<li><a href="new_appointment.php">Nueva Cita</a></li>
 				      		<li><a href="view_appointment.php">Consultar Cita(s)</a></li>
 				      		<li><a href="edit_appointment.php">Editar Cita</a></li>
 				      		<li><a href="delete_appointment.php">Eliminar Cita</a></li>
 				    	</ul> <!-- dropdown-menu -->
-
-			    	</li> <!-- dropdown -->
-								
+			    	</li> <!-- dropdown -->		
 					<li id="my-dropdown" class="dropdown">
 				    	<a  id="my-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-folder-open"> </span>  Historias <span class="caret"></span> </a>
-				    	
 				    		<ul id="my-dropdown-menu" class="dropdown-menu">
 				      			<li><a href="new_medical_history.php">Nueva Historia</a></li>
 				      			<li><a href="view_medical_history.php">Consultar Historia</a></li>
 				      			<li><a href="edit_medical_history.php">Editar Historia</a></li>
 				      			<li><a href="delete_medical_history.php">Eliminar Historia</a></li>
 				    		</ul> <!-- dropdown-menu -->
-
 			    	</li> <!-- dropdown -->
-
-
-
-
 			    	<li id="my-dropdown" class="dropdown">
 				    	<a  id="my-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-usd"> </span> Ventas<span class="caret"></span> </a>
-				    	
 				    		<ul id="my-dropdown-menu" class="dropdown-menu">
 				      			<li><a href="new_sale.php">Nueva Venta</a></li>
 				      			<li><a href="list_sales.php">Consultar Ventas</a></li>
 				      			<li><a href="view_sales.php">Eliminar</a></li>		
 				    		</ul> <!-- dropdown-menu -->
 			    	</li> <!-- dropdown -->
-
-
-					<li id="my-dropdown" class="dropdown">
+					<!--<li id="my-dropdown" class="dropdown">
 				    	<a  id="my-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-piggy-bank"> </span> Promociones<span class="caret"></span> </a>
-				    	
-				    		<ul id="my-dropdown-menu" class="dropdown-menu">
-				      			<li><a href="new_discount.php">Nueva Promoción</a></li>
-				      			<li><a href="edit_discount.php">Editar Promoción</a></li>
-				      			<li><a href="delete_discount.php">Eliminar Promoción</a></li>
-				      			<li><a href="view_discounts.php">Ver Promociones</a></li>		
-				    		</ul> <!-- dropdown-menu -->
-			    	</li> <!-- dropdown -->
-
-
-					
+			    		<ul id="my-dropdown-menu" class="dropdown-menu">
+			      			<li><a href="new_discount.php">Nueva Promoción</a></li>
+			      			<li><a href="edit_discount.php">Editar Promoción</a></li>
+			      			<li><a href="delete_discount.php">Eliminar Promoción</a></li>
+			      			<li><a href="view_discounts.php">Ver Promociones</a></li>	
+			    		</ul>
+		    		</li> -->
 			    	<li id="my-dropdown"  class="dropdown">
 			        	<a  id="my-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Mi Cuenta<span class="caret"></span></a>
 			        		<ul id="my-dropdown-menu" class="dropdown-menu">
 			          			<li><a href="change_password.php">Cambiar Clave</a></li>		
 			        		</ul> <!-- dropdown-menu -->
 			    	</li> <!-- dropdown -->
-
-
 		 			<li>
 		 				<a href="../modules/logout.php" id="logout" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-off"> </span> Salir</a> 
 		 			</li>
