@@ -11,15 +11,8 @@ require_once ("../class/appointment.class.php");
 		$$key = $value;
 	}
 
-
 	//$treat= new Treatment();
 	$appoint= new Appointment();
-
-
-	
-
-	
-	
 	echo json_encode($appoint->getAppointmentToEdit($idAppointment));
 
 ?>
