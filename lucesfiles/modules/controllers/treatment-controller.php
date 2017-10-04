@@ -3,10 +3,12 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 require_once ("../class/treatment.class.php");
-
+require_once ("../class/history.class.php");
 
 	$treat= new Treatment();
-
+	$p=new History();
+	$bodyareas;
+	$patient=$p->getIdPatient($_REQUEST['identityCard']);
 
 
 	if (isset($_REQUEST['opc']))
@@ -31,14 +33,14 @@ require_once ("../class/treatment.class.php");
 
 	if ($opc==2)
 	{	
-		//$bodyareas= $treat->getTreatment_BodyArea($_REQUEST['treatment']);
-		$bodyareas=$treat->getBodyareaBy_Treatments_Prepaid($_REQUEST['treatment']);
-		
+		$bodyareas=$treat->getBodyareaBy_Treatments_Prepaid($_REQUEST['treatment'],$patient,$_REQUEST['branch']);
+		echo $bodyareas;
 	}
 
 	else
 	{
 		$bodyareas= $treat->getTreatment_BodyArea($_REQUEST['treatment']);
+		echo "bbb";
 	}
 
 	foreach ($bodyareas as $bodyarea) 

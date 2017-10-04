@@ -111,22 +111,36 @@
 				$(document).on("change","#treatment-select-box",function(e)
      		{	
      			var opc=0;
-     			 var treatment= $("#treatment-select-box").val();
-     			 //alert("cambio de trat");
+     			var treatment= $("#treatment-select-box").val();
+     			var branch=$("#branch-select-box").val();
+     			var identityCard=$("#identityCard").val();
+
+
      			 //Warning add if... opc depens on prepaid or nor
      			 
-     			 if($("#aType-select-box").val()==1)
-     			 {
-     			 	opc=2;
-     			 	 //alert("PRE elegido");
 
+     			 if(branch==0 || identityCard=='')
+     			{
+     				setTimeout(function ()
+					{
+						swal({   title: "Datos Incompletos",   text: "Seleccione todos los datos previos",   type: "warning", confirmButtonClass: "btn-default" });
+					},100);
+							
+					return false;
+				}
+     			
+
+     			 if($("#aType-select-box").val()==1)
+     			 {	
+     			 	//PRE-PAID
+     			 	opc=2;
      			 }
      			 	
      			 else if($("#aType-select-box").val()==2)
-     				{
-     					opc=1;
-     					//alert("Postpago elegido");
-     				}
+     			{	
+     				//Post-P
+     				opc=1;
+     			}
 
 
 
@@ -138,12 +152,15 @@
     				data:
     				{	
                     	"treatment":treatment,
-                        "opc":opc
+                        "opc":opc,
+                        "branch":branch,
+                        "identityCard":identityCard
     				},
 
                     success: function(oper)
                     {
                    		$("#list_bodyareas").html(oper);
+                   		$("#newAppointment").html(oper);
                    		$('#bodyarea').SumoSelect(
                    		{
 						  	placeholder: 'Seleccione...',

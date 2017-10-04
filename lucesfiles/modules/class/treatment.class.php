@@ -251,9 +251,9 @@ class  Treatment extends Database
 
 
 
-	public function getBodyareaBy_Treatments_Prepaid($idTreatment)
+	public function getBodyareaBy_Treatments_Prepaid($idTreatment,$idPatient,$idBranch)
 	{
-		$sql = "SELECT distinct tr.id as idTreatment, bda.id as idBodyarea, bda.name as bodyareaName from sale as sa,treatment_sale as ts, treatment_bodyarea  as tba,treatment as tr, bodyarea as bda where sa.idPatient=56 and sa.idBranch=1 and ts.idSale=sa.id and tba.id=ts.idTreatmentBodyArea and tba.idTreatment=tr.id and tba.idBodyArea=bda.id  and ts.consumed=0 and tba.idTreatment='$idTreatment'";
+		$sql = "SELECT distinct tr.id as idTreatment, bda.id as idBodyarea, bda.name as bodyareaName from sale as sa,treatment_sale as ts, treatment_bodyarea  as tba,treatment as tr, bodyarea as bda where sa.idPatient='$idPatient' and sa.idBranch='$idBranch' and ts.idSale=sa.id and tba.id=ts.idTreatmentBodyArea and tba.idTreatment=tr.id and tba.idBodyArea=bda.id  and ts.consumed=0 and tba.idTreatment='$idTreatment'";
 		
 
 		$result = $this->conn->query($sql);
